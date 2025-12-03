@@ -21,7 +21,10 @@ public class AddServlet extends HttpServlet {
         StudentService std = new StudentService();
         std.addStudent(student);
 
+        req.setAttribute("student", student);
+        req.setAttribute("message", "Employee Added Successfully!");
 
+        req.getRequestDispatcher("addSuccess.jsp").forward(req, resp);
 
 
 

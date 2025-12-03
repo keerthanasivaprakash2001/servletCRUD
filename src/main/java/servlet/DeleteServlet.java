@@ -16,6 +16,15 @@ public class DeleteServlet extends HttpServlet {
         Integer id = Integer.valueOf(req.getParameter("id"));
         StudentService std1= new StudentService();
 
-        std1.deleteStudent(id);
+        if (std1 != null) {
+            std1.deleteStudent(id);
+            req.setAttribute("student", std1);
+            req.setAttribute("message", "Employee Deleted Successfully!");
+        } else {
+            req.setAttribute("message", "No Employee Found!");
+        }
+
+        req.getRequestDispatcher("deleteSuccess.jsp").forward(req, resp);
     }
-}
+    }
+

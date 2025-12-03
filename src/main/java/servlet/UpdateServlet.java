@@ -20,7 +20,21 @@ public class UpdateServlet extends HttpServlet {
         existing.setStudname(req.getParameter("name"));
         existing.setDept(req.getParameter("dept"));
 
-        std1.updateStudent(existing);
+        if (existing != null) {
+            existing.setStudname(req.getParameter("name"));
+            existing.setDept(req.getParameter("dept"));
+
+            std1.updateStudent(existing);
+
+            req.setAttribute("student", existing);
+            req.setAttribute("message", "Employee Updated Successfully!");
+
+        } else {
+            req.setAttribute("message", "Employee Not Found!");
+        }
+
+        req.getRequestDispatcher("updateSuccess.jsp").forward(req, resp);
+    }
 
 
 
@@ -28,4 +42,4 @@ public class UpdateServlet extends HttpServlet {
 
 
     }
-}
+
