@@ -15,16 +15,21 @@ public class DeleteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         StudentService std1= new StudentService();
+       // Student std1 = new Student();
 
-        if (std1 != null) {
+        Student student = std1.getStudent(id);
+
+        if (student != null) {
             std1.deleteStudent(id);
-            req.setAttribute("student", std1);
-            req.setAttribute("message", "Employee Deleted Successfully!");
+            req.setAttribute("student", student);
+            req.setAttribute("message", "Student Deleted Successfully!");
+            req.getRequestDispatcher("deleteSuccess.jsp").forward(req, resp);
         } else {
-            req.setAttribute("message", "No Employee Found!");
+            req.setAttribute("message1", "No Employee Found!");
+            req.getRequestDispatcher("deletefailure.jsp").forward(req, resp);
         }
 
-        req.getRequestDispatcher("deleteSuccess.jsp").forward(req, resp);
+
     }
     }
 

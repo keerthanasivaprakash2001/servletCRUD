@@ -4,7 +4,7 @@ import entity.Student;
 
 public interface StudentImpl {
     void addStudent(Student std);
-    Student getAllStudent(Integer id);
+    Student getStudent(Integer id);
     void updateStudent(Student std);
     void deleteStudent(Integer id);
 }

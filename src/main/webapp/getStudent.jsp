@@ -84,13 +84,13 @@
 <body>
 
 <div class="container">
-    <h2>Get Employee</h2>
+    <h2>Get Student</h2>
 
     <form action="get" method="get">
-        <label for="sid">Employee ID</label>
+        <label for="sid">Student ID</label>
         <input type="number" id="sid" name="id" required>
 
-        <button type="submit" class="btn">Search Employee</button>
+        <button type="submit" class="btn">Search Student</button>
     </form>
 
     <a href="userdashboard.jsp" class="back">Back to Dashboard</a>

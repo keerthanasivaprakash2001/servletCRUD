@@ -63,7 +63,7 @@
 
     <% String message = (String) request.getAttribute("message"); %>
 
-    <% if("Employee Updated Successfully!".equals(message)) { %>
+    <% if("Student Updated Successfully!".equals(message)) { %>
     <p class="success"><%= message %></p>
     <% } else { %>
     <p class="not-found"><%= message %></p>

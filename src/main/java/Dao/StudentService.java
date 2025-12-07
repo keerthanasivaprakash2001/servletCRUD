@@ -24,7 +24,7 @@ public class StudentService implements StudentImpl {
     }
 
     @Override
-    public Student getAllStudent(Integer id) {
+    public Student getStudent(Integer id) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("emp-unit");
         EntityManager em = emf.createEntityManager();
         EntityTransaction t = em.getTransaction();
@@ -56,39 +56,16 @@ public class StudentService implements StudentImpl {
         EntityTransaction t = em.getTransaction();
         t.begin();
         Student student = em.find(Student.class, id);
-        em.remove(student);
+
+        if (student != null) {
+            em.remove(student);
+        }
         t.commit();
         em.close();
 
 
     }
 
-    public Student loginpage(Integer id, String name) {
-
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("emp-unit");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction t = em.getTransaction();
-        t.begin();
-
-        TypedQuery<Student> query = em.createQuery(
-                "SELECT e FROM Student e WHERE e.studdid = :id AND e.studname = :name",
-                Student.class);
-
-        query.setParameter("id", id);
-        query.setParameter("name", name);
-
-        List<Student> list = query.getResultList();
-
-        if (!list.isEmpty()) {
-            System.out.println("Student verified");
-            return list.get(0);
-        } else {
-            System.out.println("Invalid details!");
-            return null;
-        }
-
-
-    }
 
     public UserLogin loginuser(String name, String password) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("emp-unit");
@@ -108,18 +85,11 @@ public class StudentService implements StudentImpl {
             UserLogin user = list.get(0);
             return user;
 
-
-//            }
-
         } else {
-            System.out.println("Invalid details!");
             return null;
-            // Invalid credentials
-//            resp.sendRedirect("login.jsp?error=Invalid+Credentials");
         }
 
     }
-
 
     public void registerServlet(Integer id ,String name, String password, String role) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("emp-unit");
@@ -133,6 +103,19 @@ public class StudentService implements StudentImpl {
         t.commit();
         em.close();
 
+
+
+
+    }
+
+    public List<Student> getALlStudent() {
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("emp-unit");
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Student> query = em.createQuery("SELECT s FROM Student s", Student.class);
+
+        List<Student> studentList = query.getResultList();
+
+        return  studentList;
 
 
 

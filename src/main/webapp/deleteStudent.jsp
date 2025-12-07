@@ -85,13 +85,13 @@
 <body>
 
 <div class="container">
-    <h2>Delete Employee</h2>
+    <h2>Delete Student</h2>
 
     <form action="delete" method="post">
-        <label for="sid">Enter Employee ID</label>
+        <label for="sid">Enter Student ID</label>
         <input type="number" id="sid" name="id" required>
 
-        <button type="submit" class="btn">Delete Employee</button>
+        <button type="submit" class="btn">Delete Student</button>
     </form>
 
     <a href="dashboard.jsp" class="back">Back to Dashboard</a>

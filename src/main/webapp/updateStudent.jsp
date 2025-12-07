@@ -84,19 +84,19 @@
 <body>
 
 <div class="container">
-    <h2>Update Employee</h2>
+    <h2>Update Student</h2>
 
     <form action="update" method="post">
-        <label for="sid">Employee ID</label>
+        <label for="sid">Student ID</label>
         <input type="number" id="sid" name="id" required>
 
-        <label for="sname">Employee Name</label>
+        <label for="sname">Student Name</label>
         <input type="text" id="sname" name="name" required>
 
         <label for="dept">Department</label>
         <input type="text" id="dept" name="dept" required>
 
-        <button type="submit" class="btn">Update Employee</button>
+        <button type="submit" class="btn">Update Student</button>
     </form>
 
     <a href="dashboard.jsp" class="back">Back to Dashboard</a>

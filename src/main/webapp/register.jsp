@@ -7,7 +7,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
+            background-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702');
             font-family: Arial;
         }
         .register-container {

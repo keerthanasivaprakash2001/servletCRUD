@@ -1,10 +1,8 @@
-<%@ page import="entity.Student" %>
-<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Employee Added</title>
+    <title>Student Not Found</title>
 
     <style>
         body {
@@ -15,57 +13,64 @@
             background-repeat: no-repeat;
             font-family: Arial, Helvetica, sans-serif;
         }
+
         .container {
             width: 450px;
             margin: 120px auto;
             background: rgba(255, 255, 255, 0.92);
             padding: 30px 20px;
-            text-align: center;
             border-radius: 12px;
+            text-align: center;
             box-shadow: 0px 0px 20px rgba(0,0,0,0.8);
         }
-        .success {
+
+        .error {
             font-size: 20px;
-            color: green;
             font-weight: bold;
+            color: #d9534f;
             margin-bottom: 20px;
         }
-        .details-box {
-            padding: 10px;
-            font-size: 17px;
-            text-align: left;
-        }
+
         .btn {
             margin-top: 20px;
             display: block;
-            background-color: #007bff;
+            background-color: #d9534f;
             color: white;
             padding: 12px;
             font-size: 18px;
             border-radius: 8px;
             text-decoration: none;
         }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
 
+        .btn:hover {
+            background-color: #b52b27;
+        }
+
+        .id-display {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <p class="success"><%= request.getAttribute("message") %></p>
 
-    <% Student student = (Student) request.getAttribute("student"); %>
-    <% if(student != null) { %>
-    <div class="details-box">
-        <p><strong>ID:</strong> <%= student.getStuddid() %></p>
-        <p><strong>Name:</strong> <%= student.getStudname() %></p>
-        <p><strong>Department:</strong> <%= student.getDept() %></p>
-    </div>
+    <% String message1 = (String) request.getAttribute("message1"); %>
+
+    <% if("No Employee Found!".equals(message1)) { %>
+    <p class="success"><%= message1 %></p>
     <% } %>
 
-    <a href="addStudent.jsp" class="btn">Back to Add Student</a>
+    <p class="error">
+        No Student Found with ID:
+        <%= request.getAttribute("id")
+        %>
+    </p>
+
+    <a href="dashboard.jsp" class="back-btn">Back</a>
 </div>
 
 </body>

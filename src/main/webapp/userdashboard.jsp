@@ -1,6 +1,15 @@
 <%@ page import="entity.Student" %>
+<%@ page import="entity.UserLogin" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%UserLogin loginuser = (UserLogin) session.getAttribute("loginuser");
+    if(loginuser == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,10 +80,11 @@
 <body>
 
 <div class="container">
-    <h2>Get Employee By ID</h2>
+    <h2>Get Student By ID</h2>
+
 
     <form action="get" method="post">
-        <input type="number" name="id" placeholder="Enter Employee ID" required><br>
+        <input type="number" name="id" placeholder="Enter Student ID" required><br>
         <button type="submit" class="btn">Search</button>
     </form>
 

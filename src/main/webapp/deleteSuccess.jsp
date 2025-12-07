@@ -63,11 +63,9 @@
 
     <% String message = (String) request.getAttribute("message"); %>
 
-    <% if("Employee Deleted Successfully!".equals(message)) { %>
+    <% if("Student Deleted Successfully!".equals(message)) { %>
     <p class="success"><%= message %></p>
-    <% } else { %>
-    <p class="not-found"><%= message %></p>
-    <% } %>
+    <% }  %>
 
     <% Student student = (Student) request.getAttribute("student"); %>
     <% if(student != null) { %>
@@ -78,7 +76,7 @@
     </div>
     <% } %>
 
-    <a href="deleteStudent.jsp" class="btn">Back to Delete Employee</a>
+    <a href="deleteStudent.jsp" class="btn">Back to Delete Student</a>
 </div>
 
 </body>

@@ -17,7 +17,7 @@
 
     <servlet>
         <servlet-name>getStudent</servlet-name>
-        <servlet-class>servlet.getAllServlet</servlet-class>
+        <servlet-class>servlet.getServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>getStudent</servlet-name>
@@ -51,5 +51,15 @@
     <servlet-mapping>
         <servlet-name>loginStudent</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>getAllStudent</servlet-name>
+        <servlet-class>servlet.GetAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getAllStudent</servlet-name>
+        <url-pattern>/getall</url-pattern>
     </servlet-mapping>
 </web-app>

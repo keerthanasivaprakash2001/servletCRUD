@@ -15,7 +15,7 @@ public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter("id"));
         StudentService std1= new StudentService();
-        Student existing = std1.getAllStudent(id);
+        Student existing = std1.getStudent(id);
 
         existing.setStudname(req.getParameter("name"));
         existing.setDept(req.getParameter("dept"));
@@ -27,10 +27,10 @@ public class UpdateServlet extends HttpServlet {
             std1.updateStudent(existing);
 
             req.setAttribute("student", existing);
-            req.setAttribute("message", "Employee Updated Successfully!");
+            req.setAttribute("message", "Student Updated Successfully!");
 
         } else {
-            req.setAttribute("message", "Employee Not Found!");
+            req.setAttribute("message", "Student Not Found!");
         }
 
         req.getRequestDispatcher("updateSuccess.jsp").forward(req, resp);

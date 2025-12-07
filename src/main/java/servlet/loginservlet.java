@@ -28,7 +28,6 @@ public class loginservlet extends HttpServlet {
             if(loginuser.getRole().equalsIgnoreCase("admin")){
                 HttpSession session = req.getSession();
                 session.setAttribute("loginuser", loginuser);
-                session.setAttribute("password", password);
                 resp.sendRedirect(req.getContextPath()+"/dashboard.jsp");
             }
             else if(loginuser.getRole().equalsIgnoreCase("user")){
@@ -37,10 +36,10 @@ public class loginservlet extends HttpServlet {
                 session.setAttribute("password", password);
                 resp.sendRedirect(req.getContextPath()+"/userdashboard.jsp");
             }
-            else {
-                req.setAttribute("error", "Invalid Credentials!");
-                req.getRequestDispatcher("index.jsp").forward(req, resp);
-            }
+
+        }else if(loginuser==null){
+            req.setAttribute("error", "Invalid Credentials!");
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
 
 

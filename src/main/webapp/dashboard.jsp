@@ -1,4 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="entity.UserLogin" %>
+
+<%
+    UserLogin loginuser = (UserLogin) session.getAttribute("loginuser");
+
+    if(loginuser == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -74,13 +85,14 @@
 <div class="container">
     <h1>Admin Dashboard</h1>
 
-    <p class="user-info">Welcome, <strong><%= session.getAttribute("username") %></strong></p>
+    <p class="user-info">Welcome, <%= loginuser.getName() %> 👋</p>
 
-    <a href="addStudent.jsp" class="btn">Add Employee</a>
-    <a href="updateStudent.jsp" class="btn">Update Employee</a>
-    <a href="deleteStudent.jsp" class="btn">Delete Employee</a>
+    <a href="addStudent.jsp" class="btn">Add Student</a>
+    <a href="updateStudent.jsp" class="btn">Update Student</a>
+    <a href="deleteStudent.jsp" class="btn">Delete Student</a>
+    <a href="getall" class="btn">View All Students</a>
 
-    <a href="logout.jsp" class="logout">Logout</a>
+    <a href="index.jsp" class="logout">Logout</a>
 </div>
 
 </body>

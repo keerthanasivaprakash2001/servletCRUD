@@ -67,7 +67,7 @@
 <body>
 
 <div class="container">
-    <h2>Employee Details</h2>
+    <h2>Student Details</h2>
 
     <% Student student = (Student) request.getAttribute("student"); %>
 
@@ -81,7 +81,7 @@
 
     <% } else { %>
 
-    <p class="not-found">No Employee Found!</p>
+    <p class="not-found">No Student Found!</p>
 
     <% } %>
 
